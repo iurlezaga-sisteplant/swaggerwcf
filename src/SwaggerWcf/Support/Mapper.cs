@@ -685,7 +685,8 @@ namespace SwaggerWcf.Support
             {
                 res.Add(new Response
                 {
-                    Code = "default",
+                    Code = "200",
+                    Description = "OK",
                     Schema = schema
                 });
             }

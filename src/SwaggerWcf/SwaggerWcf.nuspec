@@ -1,17 +1,16 @@
-﻿<?xml version="1.0"?>
-<package>
+<?xml version="1.0" encoding="utf-8"?>
+<package >
   <metadata>
-    <id>$title$</id>
+    <id>IUrlezaga.SwaggerWcf</id>
     <version>$version$</version>
-    <title>$title$</title>
-    <authors>$author$</authors>
-    <owners>$author$</owners>
-    <licenseUrl>https://raw.githubusercontent.com/abelsilva/swaggerwcf/master/LICENSE</licenseUrl>
-    <projectUrl>https://github.com/abelsilva/swaggerwcf</projectUrl>
+    <title>IUrlezaga.SwaggerWcf</title>
+    <authors>IUrlezaga (abelsilva fork)</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
-    <releaseNotes>#160</releaseNotes>
-    <copyright>Copyright 2018</copyright>
-    <tags>swagger wcf .net c#</tags>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/iurlezaga-sisteplant/swaggerwcf</projectUrl>
+    <description>Swagger for WCF (forked from abelsilva)</description>
+    <releaseNotes>SwaggerUI update</releaseNotes>
+    <copyright>$copyright$</copyright>
+    <tags>Swagger WCF .net c#</tags>
   </metadata>
 </package>

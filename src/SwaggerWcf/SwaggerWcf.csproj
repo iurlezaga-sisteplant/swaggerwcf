@@ -124,8 +124,31 @@
     <EmbeddedResource Include="www\swagger-ui.zip" />
     <None Include="packages.config" />
     <None Include="SwaggerWcf.nuspec" />
+    <None Include="www\swagger-ui\swagger-ui-bundle.js.map" />
+    <None Include="www\swagger-ui\swagger-ui-es-bundle-core.js.map" />
+    <None Include="www\swagger-ui\swagger-ui-es-bundle.js.map" />
+    <None Include="www\swagger-ui\swagger-ui-standalone-preset.js.map" />
+    <None Include="www\swagger-ui\swagger-ui.css.map" />
+    <None Include="www\swagger-ui\swagger-ui.js.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="www\swagger-ui\favicon-16x16.png" />
+    <Content Include="www\swagger-ui\favicon-32x32.png" />
+    <Content Include="www\swagger-ui\index.css" />
+    <Content Include="www\swagger-ui\index.html" />
+    <Content Include="www\swagger-ui\oauth2-redirect.html" />
+    <Content Include="www\swagger-ui\swagger-initializer.js" />
+    <Content Include="www\swagger-ui\swagger-ui-bundle.js" />
+    <Content Include="www\swagger-ui\swagger-ui-es-bundle-core.js" />
+    <Content Include="www\swagger-ui\swagger-ui-es-bundle.js" />
+    <Content Include="www\swagger-ui\swagger-ui-standalone-preset.js" />
+    <Content Include="www\swagger-ui\swagger-ui.css" />
+    <Content Include="www\swagger-ui\swagger-ui.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>powershell Compress-Archive -Path '$(SolutionDir)SwaggerWcf\www\swagger-ui\*' -DestinationPath '$(SolutionDir)SwaggerWcf\www\swagger-ui.zip' -Force</PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
