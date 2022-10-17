@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package >
   <metadata>
-    <id>Sisteplant.SwaggerWcf</id>
+    <id>IUrlezaga.SwaggerWcf</id>
     <version>0.3</version>
-    <title>Sisteplant.SwaggerWcf</title>
+    <title>IUrlezaga.SwaggerWcf</title>
     <authors>IUrlezaga (abelsilva fork)</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
