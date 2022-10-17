@@ -5,7 +5,7 @@ namespace SwaggerWcf.Attributes
     /// <summary>
     /// Attribute to link operation to a security definition
     /// </summary>
-    [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class, AllowMultiple = true)]
     public class SwaggerWcfSecurityAttribute : Attribute
     {
         /// <summary>

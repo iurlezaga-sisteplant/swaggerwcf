@@ -119,6 +119,8 @@ namespace SwaggerWcf.Support
 
                 if (service.Info is null)
                     service.Info = ti.GetServiceInfo();
+                    
+                service.Security = ti.GetServiceSecurity();
 
                 var mapper = new Mapper(hiddenTags, visibleTags);
                   
@@ -139,7 +141,7 @@ namespace SwaggerWcf.Support
                         basePath = "/" + basePath;
                 }
 
-                var paths = mapper.FindMethods(ti.AsType(), definitionsTypesList, basePath);
+                var paths = mapper.FindMethods(ti.AsType(), definitionsTypesList, service, basePath);
                 service.Paths.AddRange(paths);
             }
         }
@@ -189,7 +191,7 @@ namespace SwaggerWcf.Support
             if (service.BasePath.EndsWith("/"))
                 service.BasePath = service.BasePath.Substring(0, service.BasePath.Length - 1);
 
-            var paths = mapper.FindMethods(type, definitionsTypesList);
+            var paths = mapper.FindMethods(type, definitionsTypesList,service);
             service.Paths.AddRange(paths);
         }
     }

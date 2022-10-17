@@ -28,6 +28,7 @@ namespace SwaggerWcf.Models
         public List<Definition> Definitions { get; set; }
 
         public SecurityDefinitions SecurityDefinitions { get; set; }
+        public List<KeyValuePair<string, string[]>> Security { get; set; }
 
         public void Serialize(JsonWriter writer)
         {

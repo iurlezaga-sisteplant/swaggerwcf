@@ -25,7 +25,7 @@ namespace SwaggerWcf.Support
         internal readonly IEnumerable<string> HiddenTags;
         internal readonly IEnumerable<string> VisibleTags;
 
-        internal IEnumerable<Path> FindMethods(Type markedType, IList<Type> definitionsTypesList, string basePath = null)
+        internal IEnumerable<Path> FindMethods(Type markedType, IList<Type> definitionsTypesList, Service service, string basePath = null)
         {
             List<Path> paths = new List<Path>();
             List<Tuple<string, PathAction>> pathActions = new List<Tuple<string, PathAction>>();
@@ -64,7 +64,7 @@ namespace SwaggerWcf.Support
                 if (i.IsInterface)
                 {
                     InterfaceMapping map = serviceType.GetInterfaceMap(i);
-                    pathActions.AddRange(GetActions(map.TargetMethods, map.InterfaceMethods, definitionsTypesList));
+                    pathActions.AddRange(GetActions(map.TargetMethods, map.InterfaceMethods, definitionsTypesList,service));
 
                     //Nested Interface
                     var baseInterfaces = i.GetInterfaces();
@@ -73,13 +73,13 @@ namespace SwaggerWcf.Support
                         foreach (var baseInterface in baseInterfaces)
                         {
                             var _map = serviceType.GetInterfaceMap(baseInterface);
-                            pathActions.AddRange(GetActions(_map.TargetMethods, _map.InterfaceMethods, definitionsTypesList));
+                            pathActions.AddRange(GetActions(_map.TargetMethods, _map.InterfaceMethods, definitionsTypesList,service));
                         }
                     }
                 }
                 else
                 {
-                    pathActions.AddRange(GetActions(i.GetMethods(), i.GetMethods(), definitionsTypesList));
+                    pathActions.AddRange(GetActions(i.GetMethods(), i.GetMethods(), definitionsTypesList,service));
                 }
             }
 
@@ -128,7 +128,8 @@ namespace SwaggerWcf.Support
 
         internal IEnumerable<Tuple<string, PathAction>> GetActions(MethodInfo[] targetMethods,
                                                                    MethodInfo[] interfaceMethods,
-                                                                   IList<Type> definitionsTypesList)
+                                                                   IList<Type> definitionsTypesList,
+                                                                   Service service)
         {
             int methodsCounts = interfaceMethods.Count();
             for (int index = 0; index < methodsCounts; index++)
@@ -237,7 +238,7 @@ namespace SwaggerWcf.Support
                     OperationId = HttpUtility.HtmlEncode(operationId),
                     ExternalDocs = externalDocs,
                     Responses = GetResponseCodes(implementation, declaration, wrappedResponse, definitionsTypesList),
-                    Security = GetMethodSecurity(implementation, declaration)
+                    Security = service.Security ?? GetMethodSecurity(implementation, declaration)
                     // Schemes = TODO: how to get available schemes for this WCF service? (schemes: http/https)
                 };
 

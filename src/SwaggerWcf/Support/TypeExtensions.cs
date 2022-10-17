@@ -3,6 +3,7 @@ using SwaggerWcf.Models;
 using System;
 using System.Linq;
 using System.Reflection;
+using System.Collections.Generic;
 
 namespace SwaggerWcf.Support
 {
@@ -43,8 +44,18 @@ namespace SwaggerWcf.Support
             {
                 info.License = (InfoLicense)licenseAttr;
             }
-
             return info;
+        }
+
+        internal static List<KeyValuePair<string, string[]>> GetServiceSecurity(this TypeInfo typeInfo)
+        {
+            var securityAttribute = typeInfo.GetCustomAttribute<SwaggerWcfSecurityAttribute>();
+            if (securityAttribute == null) return null;
+            var security = new List<KeyValuePair<string, string[]>>();
+
+            security.Add(new KeyValuePair<string, string[]>(securityAttribute.SecurityDefinitionName, securityAttribute.SecurityDefinitionScopes));
+
+            return security;
         }
     }
 }
