@@ -7,6 +7,8 @@ window.onload = function () {
         url,
         dom_id: '#swagger-ui',
         deepLinking: true,
+        docExpansion: 'none',
+        persistAuthorization: true,
         defaultModelsExpandDepth: -1,
         tagsSorter: function (a, b) {
             if(a === 'Token') return -1
