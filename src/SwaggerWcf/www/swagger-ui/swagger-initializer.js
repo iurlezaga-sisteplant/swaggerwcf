@@ -14,6 +14,8 @@ window.onload = function () {
             if(a === 'Token') return -1
             return a.localeCompare(b);
         },
+        operationsSorter : 'method',
+        tryItOutEnabled : true,
         presets: [
             SwaggerUIBundle.presets.apis,
             SwaggerUIStandalonePreset

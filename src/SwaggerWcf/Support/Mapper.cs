@@ -231,7 +231,7 @@ namespace SwaggerWcf.Support
                     Summary = summary,
                     Description = description,
                     Tags =
-                        methodTags.Where(t => !t.HideFromSpec).Select(t => HttpUtility.HtmlEncode(t.TagName)).ToList(),
+                        methodTags.Where(t => !t.HideFromSpec).Select(t => t.TagName).ToList(),
                     Consumes = new List<string>(GetConsumes(implementation, declaration)),
                     Produces = new List<string>(GetProduces(implementation, declaration)),
                     Deprecated = deprecated,

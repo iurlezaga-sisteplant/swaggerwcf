@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>IUrlezaga.SwaggerWcf</id>
-    <version>0.3</version>
+    <version>0.3.4</version>
     <title>IUrlezaga.SwaggerWcf</title>
     <authors>IUrlezaga (abelsilva fork)</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

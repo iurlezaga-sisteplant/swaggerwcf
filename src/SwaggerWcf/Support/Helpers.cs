@@ -20,7 +20,7 @@ namespace SwaggerWcf.Support
             }
             if (type == typeof(byte))
             {
-                return new TypeFormat(ParameterType.String, "byte");
+                return new TypeFormat(ParameterType.Number, "int32");
             }
             if (type == typeof(sbyte))
             {
